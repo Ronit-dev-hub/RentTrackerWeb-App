@@ -1,0 +1,383 @@
+/* Northern Lights Theme for Rent Tracker */
+:root {
+    --aurora-purple: #8B5A96;
+    --aurora-blue: #2E5266;
+    --aurora-teal: #4A90A4;
+    --aurora-green: #7FB069;
+    --aurora-pink: #E06B74;
+    --aurora-dark: #1A1A2E;
+    --aurora-darker: #0F0F23;
+    --aurora-light: #16213E;
+    --aurora-glow: rgba(139, 90, 150, 0.3);
+    --aurora-shimmer: linear-gradient(45deg, var(--aurora-purple), var(--aurora-teal), var(--aurora-green), var(--aurora-pink));
+}
+
+/* Global background with northern lights effect */
+body {
+    background: linear-gradient(135deg, var(--aurora-darker) 0%, var(--aurora-dark) 50%, var(--aurora-light) 100%);
+    color: #E8E9F3;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Container with aurora glow */
+.container {
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: radial-gradient(ellipse at center top, var(--aurora-glow) 0%, transparent 70%);
+    z-index: -1;
+    animation: auroraShimmer 8s ease-in-out infinite alternate;
+}
+
+@keyframes auroraShimmer {
+    0% { opacity: 0.5; transform: scaleX(1); }
+    100% { opacity: 0.8; transform: scaleX(1.2); }
+}
+
+/* Header styling */
+.navbar, .header-section {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 90, 150, 0.2);
+}
+
+/* Dashboard stats with aurora gradient */
+.dashboard-stats {
+    background: var(--aurora-shimmer);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(139, 90, 150, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmerEffect 3s infinite;
+}
+
+@keyframes shimmerEffect {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Property cards with northern lights glow */
+.property-card {
+    background: rgba(22, 33, 62, 0.9);
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.property-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--aurora-shimmer);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(139, 90, 150, 0.4);
+    border-color: var(--aurora-purple);
+}
+
+.property-card:hover::before {
+    opacity: 1;
+}
+
+/* Property card status indicators */
+.property-card.rent-received {
+    border-color: var(--aurora-green);
+    box-shadow: 0 5px 20px rgba(127, 176, 105, 0.3);
+}
+
+.property-card.rent-pending {
+    border-color: var(--aurora-pink);
+    box-shadow: 0 5px 20px rgba(224, 107, 116, 0.3);
+}
+
+.property-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E8E9F3;
+    margin-bottom: 8px;
+}
+
+.renter-name {
+    color: var(--aurora-teal);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.rent-amount {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.rent-amount.received {
+    color: var(--aurora-green);
+    text-shadow: 0 0 10px rgba(127, 176, 105, 0.5);
+}
+
+.rent-amount.pending {
+    color: var(--aurora-pink);
+    text-shadow: 0 0 10px rgba(224, 107, 116, 0.5);
+}
+
+.property-status {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Buttons with aurora styling */
+.btn-primary {
+    background: var(--aurora-shimmer);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    font-weight: 500;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 90, 150, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(46, 82, 102, 0.8);
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    color: #E8E9F3;
+    border-radius: 25px;
+    padding: 12px 28px;
+}
+
+.btn-secondary:hover {
+    background: rgba(46, 82, 102, 1);
+    border-color: var(--aurora-purple);
+    color: white;
+}
+
+/* Modal styling with aurora theme */
+.modal-content {
+    background: rgba(22, 33, 62, 0.95);
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(139, 90, 150, 0.3);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(139, 90, 150, 0.2);
+    background: var(--aurora-shimmer);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Form controls with aurora styling */
+.form-control, .form-select {
+    background: rgba(26, 26, 46, 0.8);
+    border: 2px solid rgba(139, 90, 150, 0.3);
+    border-radius: 12px;
+    color: #E8E9F3;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(26, 26, 46, 0.9);
+    border-color: var(--aurora-purple);
+    box-shadow: 0 0 0 0.25rem rgba(139, 90, 150, 0.25);
+    color: #E8E9F3;
+}
+
+.form-control::placeholder {
+    color: rgba(232, 233, 243, 0.6);
+}
+
+.form-label {
+    color: var(--aurora-teal);
+    font-weight: 500;
+}
+
+/* Table styling */
+.table {
+    background: rgba(22, 33, 62, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    color: #E8E9F3;
+}
+
+.table thead th {
+    background: var(--aurora-shimmer);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 18px;
+}
+
+.table tbody td {
+    border-color: rgba(139, 90, 150, 0.2);
+    padding: 15px 18px;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(139, 90, 150, 0.1);
+}
+
+/* Status indicators */
+.status-received {
+    color: var(--aurora-green);
+    font-weight: 600;
+}
+
+.status-pending {
+    color: var(--aurora-pink);
+    font-weight: 600;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: rgba(232, 233, 243, 0.7);
+}
+
+.empty-state i {
+    font-size: 5rem;
+    margin-bottom: 24px;
+    color: var(--aurora-purple);
+    opacity: 0.6;
+}
+
+/* Cards and alerts */
+.card {
+    background: rgba(22, 33, 62, 0.9);
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    color: #E8E9F3;
+}
+
+.alert-success {
+    background: rgba(127, 176, 105, 0.2);
+    border: 1px solid rgba(127, 176, 105, 0.4);
+    color: #E8E9F3;
+}
+
+.alert-danger {
+    background: rgba(224, 107, 116, 0.2);
+    border: 1px solid rgba(224, 107, 116, 0.4);
+    color: #E8E9F3;
+}
+
+/* Toast notifications */
+.toast {
+    background: rgba(22, 33, 62, 0.95);
+    border: 1px solid rgba(139, 90, 150, 0.3);
+    color: #E8E9F3;
+    backdrop-filter: blur(10px);
+}
+
+.toast-header {
+    background: var(--aurora-shimmer);
+    color: white;
+    border-bottom: 1px solid rgba(139, 90, 150, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .property-card {
+        margin-bottom: 20px;
+    }
+    
+    .dashboard-stats {
+        margin-bottom: 25px;
+        padding: 20px;
+    }
+}
+
+/* Additional styling for yearly increase section */
+.yearly-increase-section {
+    background: rgba(26, 26, 46, 0.5);
+    border: 1px solid rgba(139, 90, 150, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+}
+
+.section-title {
+    color: var(--aurora-teal);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--aurora-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--aurora-purple);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--aurora-teal);
+}
